@@ -1,12 +1,10 @@
 import { Text, View } from "react-native";
 import React from "react";
-import colors from "../styles/colors";
-import Header from "@/components/header";
+import colors from "@/styles/colors";
 
 export default function Wishlist() {
   return (
     <>
-      <Header />
       <View
         style={{
           flex: 1,
