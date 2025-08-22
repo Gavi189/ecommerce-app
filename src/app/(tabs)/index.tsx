@@ -4,6 +4,8 @@ import colors from "@/styles/colors";
 import Title from "@/components/title";
 import Promo from "@/components/promo";
 import CategoryList from "@/components/categoryList";
+import ProductList from "@/components/productList";
+import ProductItemList from "@/components/productItemList";
 
 export default function Index() {
   return (
@@ -21,6 +23,10 @@ export default function Index() {
         <Title word={"Título"} />
         <Promo urlImage="https://img.freepik.com/vetores-premium/101_54768-455.jpg?semt=ais_hybrid&w=740&q=80" />
         <CategoryList />
+        <Title word={"Promoções"} />
+        <ProductList />
+        <Title word={"Produtos"} />
+        <ProductItemList />
       </ScrollView>
     </View>
   );
