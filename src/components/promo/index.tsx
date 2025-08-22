@@ -8,7 +8,10 @@ interface PromoProps {
 const Promo: React.FC<PromoProps> = ({ urlImage }) => {
   return (
     <View style={styles.container}>
-      <Image source={{ uri: urlImage }} style={styles.image} />
+      <Image
+        source={require("../../../assets/images/Promo.jpg")}
+        style={styles.image}
+      />
     </View>
   );
 };

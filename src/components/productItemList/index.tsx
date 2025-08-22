@@ -9,7 +9,7 @@ type Product = {
   image: string;
 };
 
-const products: Product[] = [
+export const products: Product[] = [
   {
     id: "1",
     name: "Tênis Esportivo",
@@ -21,13 +21,15 @@ const products: Product[] = [
     id: "2",
     name: "Camisa Polo",
     price: 89.99,
-    image: "https://via.placeholder.com/100",
+    image:
+      "https://m.media-amazon.com/images/I/41Zbbl4P+LL._UF1000,1000_QL80_.jpg",
   },
   {
     id: "3",
     name: "Relógio Digital",
     price: 299.99,
-    image: "https://via.placeholder.com/100",
+    image:
+      "https://m.media-amazon.com/images/I/41Zbbl4P+LL._UF1000,1000_QL80_.jpg",
   },
 ];
 
