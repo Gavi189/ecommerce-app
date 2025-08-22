@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import React from "react";
 import colors from "@/styles/colors";
 import Title from "@/components/title";
@@ -7,19 +7,21 @@ import CategoryList from "@/components/categoryList";
 
 export default function Index() {
   return (
-    <>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: colors.gray[900],
-        }}
-      >
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: colors.gray[900],
+        paddingHorizontal: 20,
+      }}
+    >
+      {/* import react-native */}
+      <ScrollView>
         <Title word={"Título"} />
-        <Promo urlImage="https://picsum.photos/200/300" />
+        <Promo urlImage="https://img.freepik.com/vetores-premium/101_54768-455.jpg?semt=ais_hybrid&w=740&q=80" />
         <CategoryList />
-      </View>
-    </>
+      </ScrollView>
+    </View>
   );
 }
