@@ -10,6 +10,9 @@ type Product = {
   image: string;
 };
 
+//MVC
+//model 
+//products.ts
 const products: Product[] = [
   {
     id: "1",
@@ -50,8 +53,9 @@ export default function ProductList() {
           price={item.price}
           onPress={() =>
             router.push({
-              pathname: "/productDetail/[id]",
-              params: { id: item.id },
+              //push = Direciona
+              pathname: "/productDetail/[id]", //Para onde? nome da rota
+              params: { id: item.id }, //O que levar? id
             })
           }
         />

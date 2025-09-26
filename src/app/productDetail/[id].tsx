@@ -8,25 +8,74 @@ export default function ProductDetail() {
 
   if (!product) {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 22, fontWeight: "600" }}>
-          Produto não encontrado
-        </Text>
+      <View style={styles.centered}>
+        <Text style={styles.notFoundText}>Produto não encontrado</Text>
       </View>
     );
   }
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={styles.container}>
       <Image
         source={{ uri: product.image }}
-        style={{ width: 200, height: 200, marginBottom: 20 }}
+        style={styles.image}
         resizeMode="contain"
       />
-      <Text style={{ fontSize: 22, fontWeight: "600" }}>{product.name}</Text>
-      <Text style={{ fontSize: 18, marginTop: 10 }}>
-        Preço: R$ {product.price.toFixed(2)}
+      <Text style={styles.name}>{product.name}</Text>
+      <Text style={styles.price}>
+        Preço:{" "}
+        <Text style={styles.priceValue}>R$ {product.price.toFixed(2)}</Text>
       </Text>
     </View>
   );
 }
+
+const styles = {
+  container: {
+    flex: 1,
+    alignItems: "center" as "center",
+    justifyContent: "flex-start" as "flex-start",
+    padding: 24,
+    backgroundColor: "#f9f9f9",
+  },
+  centered: {
+    flex: 1,
+    alignItems: "center" as "center",
+    justifyContent: "center" as "center",
+    backgroundColor: "#f9f9f9",
+  },
+  image: {
+    width: 260,
+    height: 260,
+    marginBottom: 28,
+    borderRadius: 16,
+    backgroundColor: "#fff",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.12,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  name: {
+    fontSize: 26,
+    fontWeight: "700" as "700",
+    color: "#222",
+    marginBottom: 12,
+    textAlign: "center" as "center",
+  },
+  price: {
+    fontSize: 20,
+    color: "#555",
+    marginTop: 8,
+    marginBottom: 4,
+  },
+  priceValue: {
+    fontWeight: "bold" as "bold",
+    color: "#1e88e5",
+  },
+  notFoundText: {
+    fontSize: 22,
+    fontWeight: "600" as "600",
+    color: "#d32f2f",
+  },
+};

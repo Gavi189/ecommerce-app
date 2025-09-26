@@ -14,7 +14,7 @@ export default function ProductCard({
   price,
   onPress,
 }: ProductCardProps) {
-  return (
+  return (//View
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={{ uri: image }} style={styles.image} resizeMode="cover" />
       <View style={styles.info}>
