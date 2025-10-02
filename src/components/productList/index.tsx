@@ -1,61 +1,40 @@
 import { FlatList } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "../ProductCard";
 import { useRouter } from "expo-router";
-
-type Product = {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-};
-
-//MVC
-//model 
-//products.ts
-const products: Product[] = [
-  {
-    id: "1",
-    name: "Tênis Esportivo",
-    price: 199.99,
-    image:
-      "https://m.media-amazon.com/images/I/41Zbbl4P+LL._UF1000,1000_QL80_.jpg",
-  },
-  {
-    id: "2",
-    name: "Camisa Polo",
-    price: 89.99,
-    image:
-      "https://m.media-amazon.com/images/I/41Zbbl4P+LL._UF1000,1000_QL80_.jpg",
-  },
-  {
-    id: "3",
-    name: "Relógio Digital",
-    price: 299.99,
-    image:
-      "https://m.media-amazon.com/images/I/41Zbbl4P+LL._UF1000,1000_QL80_.jpg",
-  },
-];
+import ProductService from "@/models/services/ProductService";
+import { Product } from "@/models/types/Product";
 
 export default function ProductList() {
   const router = useRouter();
 
+  const [data, setData] = useState<Product[]>([]);
+  const _service = new ProductService();
+
+  //useEffect para carregar os produtos ao
+  // montar o componente
+  useEffect(() => {
+    _service.getAll().then((response) => {
+      setData(response);
+      console.log(response);
+    });
+  }, []);
+
   return (
     <FlatList
-      data={products}
-      horizontal //Para deixar a lista posição horizontal
+      data={data}
       showsHorizontalScrollIndicator={false}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item.id_produto.toString()}
       renderItem={({ item }) => (
         <ProductCard
-          image={item.image}
-          title={item.name}
-          price={item.price}
+          image={item.imagem}
+          title={item.produto}
+          price={item.id_produto}
           onPress={() =>
             router.push({
               //push = Direciona
               pathname: "/productDetail/[id]", //Para onde? nome da rota
-              params: { id: item.id }, //O que levar? id
+              params: { id: item.id_produto }, //O que levar? id
             })
           }
         />
