@@ -16,7 +16,6 @@ export default function ProductList() {
   useEffect(() => {
     _service.getAll().then((response) => {
       setData(response);
-      console.log(response);
     });
   }, []);
 
@@ -27,7 +26,7 @@ export default function ProductList() {
       keyExtractor={(item) => item.id_produto.toString()}
       renderItem={({ item }) => (
         <ProductCard
-          image={item.imagem}
+          image={`http://10.63.45.29:8082/produtos/imagens/${item.imagem}`}
           title={item.produto}
           price={item.id_produto}
           onPress={() =>
