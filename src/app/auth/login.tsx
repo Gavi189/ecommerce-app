@@ -2,7 +2,6 @@ import { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet, Alert } from "react-native";
 import { useRouter } from "expo-router";
 import ClientService from "@/models/services/ClientService";
-import { createHash } from "crypto";
 
 const clientService = new ClientService();
 
@@ -13,14 +12,10 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      const _clientes = await clientService.getAll();
+      const _clientes = await clientService.getAll(email, senha);
 
-      const _usuario = _clientes.find(
-        (c) => c.email === email && c.senha === senha
-      );
-
-      if (_usuario) {
-        console.log(" Login realizado!", `Bem-vindo, ${_usuario.nome}`);
+      if (_clientes) {
+        console.log(" Login realizado!", `Bem-vindo, ${_clientes[0].nome}`);
         router.replace("/(tabs)");
       } else {
         console.log(" Erro", "Email ou senha inválidos");

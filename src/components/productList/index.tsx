@@ -26,7 +26,7 @@ export default function ProductList() {
       keyExtractor={(item) => item.id_produto.toString()}
       renderItem={({ item }) => (
         <ProductCard
-          image={`http://10.63.45.29:8082/produtos/imagens/${item.imagem}`}
+          image={`http://10.63.45.29:8081/produtos/imagens/${item.imagem}`}
           title={item.produto}
           price={item.id_produto}
           onPress={() =>

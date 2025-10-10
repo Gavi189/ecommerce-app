@@ -40,7 +40,7 @@ export default class ProductService extends ApiService<Product> {
   }
 
   async update(id: number, data: Partial<Product>): Promise<Product> {
-    const response = await fetch(`${this._baseUrl}${id}`, {
+    const response = await fetch(`${this._baseUrl}/${id}`, {
       method: "PUT",
       headers: this._headers,
       body: JSON.stringify(data),

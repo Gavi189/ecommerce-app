@@ -17,11 +17,14 @@ export default class ClientService extends ApiService<Client> {
     return response.json();
   }
 
-  async getAll(): Promise<Client[]> {
-    const response = await fetch(this._baseUrl, {
-      method: "GET",
-      headers: this._headers,
-    });
+  async getAll(email?: string, password?: string): Promise<Client[]> {
+    const response = await fetch(
+      `http://10.63.45.29:8080/clientes/?email=${email}&senha=${password}`,
+      {
+        method: "GET",
+        headers: this._headers,
+      }
+    );
     const json = await response.json();
     return json.data;
   }
